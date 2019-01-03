@@ -33,7 +33,7 @@ public class WeatherApiServiceImpl implements WeatherApiService{
 
     private static final String server_uri="http://wthrcdn.etouch.cn/weather_mini";
 
-    //方法一：通过代码请求服务器 原始的httpclient
+    //方法一：原始的httpclient 通过代码请求服务器
     //http://wthrcdn.etouch.cn/weather_mini?city=北京
    /* @Override
     public WeatherResponse getWeatherInfoByCityName(String cityName) {
@@ -118,7 +118,6 @@ public class WeatherApiServiceImpl implements WeatherApiService{
 
             if (responseEntity.getStatusCodeValue() == 200){
                 jsonString = responseEntity.getBody();
-                System.out.println("response= " + jsonString);
 
                 //存进redis缓存里
                 stringStringValueOperations.set(key,jsonString);
